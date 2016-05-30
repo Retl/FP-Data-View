@@ -304,6 +304,12 @@ namespace fp_data_view {
 					 posX = ReadDoubleFromMem(offsetPosX, posX);
 					 posY = ReadDoubleFromMem(offsetPosY, posY);
 					 screenID = ReadIntFromMem(offsetScreenID, screenID);
+
+					 if (screenID < -5 || screenID > 100) {
+						 hFP = NULL;
+						 LocateFP();
+						 return;
+					 }
 					 
 					 this->lblPosition->Text = "Position: ( " + posX + ", " + posY + " )";
 					 this->lblScreenID->Text = "Screen ID: ( " + screenID + " )";
